@@ -1,0 +1,18 @@
+[package]
+name = "mcp-gitlab-server"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# MCP SDK dependencies - using workspace dependencies
+rmcp = { workspace = true, features = ["server", "client", "macros", "transport-child-process", "transport-sse-server", "transport-streamable-http-server"] }
+rmcp-macros = { workspace = true }
+
+# Basic dependencies for your GitLab MCP server
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+axum = "0.8.4"
